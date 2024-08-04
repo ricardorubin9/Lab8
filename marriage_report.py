@@ -62,5 +62,23 @@ def save_married_couples_csv(married_couples, csv_path):
 
     return
 
-if __name__ == '__main__':
+def all_couples():
+    con = sqlite3.connect('social_network.db')
+    cur = con.cursor()
+
+
+    all_relationships_query = """
+        SELECT person1.name, person2.name, start_date, type FROM relationships
+        JOIN people person1 ON person1_id = person1.id
+        JOIN people person2 ON person2_id = person2.id
+    """
+     cur.execute(all_relationships_query)
+     all_relationships = cur.fechall()
+     
+     for person1, person2, start_date, type in all_relationships:
+         print(f'{person1} has been a {type} of {person2} since {start_date}') 
+     con.close()
+     return()
+       
+       if __name__ == '__main__':
    main()
