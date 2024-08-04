@@ -70,7 +70,7 @@ def all_couples():
     all_relationships_query = """
         SELECT person1.name, person2.name, start_date, type FROM relationships
         JOIN people person1 ON person1_id = person1.id
-        JOIN people person2 ON person2_id = person2.id
+        JOIN people person2 ON person2_id = person2.id;
     """
      cur.execute(all_relationships_query)
      all_relationships = cur.fechall()
