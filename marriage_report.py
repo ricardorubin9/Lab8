@@ -18,6 +18,7 @@ def main():
     # Save all married couples to CSV file
     csv_path = os.path.join(script_dir, 'married_couples.csv')
     save_married_couples_csv(married_couples, csv_path)
+    all_couples()
 
 def get_married_couples():
     """Queries the Social Network database for all married couples.
@@ -73,7 +74,7 @@ def all_couples():
         JOIN people person2 ON person2_id = person2.id;
     """
      cur.execute(all_relationships_query)
-     all_relationships = cur.fechall()
+     all_relationships = cur.fetchall()
      
      for person1, person2, start_date, type in all_relationships:
          print(f'{person1} has been a {type} of {person2} since {start_date}') 
