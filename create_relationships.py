@@ -10,6 +10,7 @@ import os
 import sqlite3
 from random import randint, choice
 from faker import Faker
+from create_dbV3 import create_people_table, populate_people_table
 
 
 # Determine the path of the database
